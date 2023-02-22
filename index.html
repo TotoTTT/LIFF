@@ -66,6 +66,7 @@
     }
 
     async function sendMsg() {
+      alert("Message sent")
       if (liff.getContext().type !== "none") {
         await liff.sendMessages([
           {
