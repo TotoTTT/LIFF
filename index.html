@@ -66,19 +66,13 @@
     }
 
     async function sendMsg() {
-      alert("Message sent")
       if (liff.getContext().type !== "none") {
-        //const profile = await liff.getProfile()
         await liff.sendMessages([
           {
-            "type": "text",
-            "text": "Hello"
+            "type": "sticker",
+            "stickerId": 1,
+            "packageId": 1
           }
-          //{
-          //  "type": "image",
-          //  "originalContentUrl": profile.pictureUrl,
-          //  "previewImageUrl": profile.pictureUrl
-          //}
         ])
         alert("Message sent")
       }
