@@ -93,15 +93,17 @@
     }
 
     async function sendMsg() {
-      await liff.sendMessages([
-        {
-          type: "text",
-          text: "ดีจ้าาาา นี้รูปคุณใช่ไหม"
-        }
-      ])
-      alert("Message sent")
+      if (liff.getContext().type !== "none") {
+        await liff.sendMessages([
+          {
+            "type": "sticker",
+            "stickerId": 1,
+            "packageId": 1
+          }
+        ])
+        alert("Message sent")
+      }
     }
-
 
     function getContext() {
       if (liff.getContext() != null) {
