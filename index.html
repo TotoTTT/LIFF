@@ -94,19 +94,24 @@
 
     async function sendProfileAndMsg() {
       if (liff.getContext().type !== "none") {
-        const profile = await liff.getProfile()
-        await liff.sendMessages([
-          {
-            type: "image",
-            originalContentUrl: profile.pictureUrl,
-            previewImageUrl: profile.pictureUrl
-          },
-          {
-            type: "text",
-            text: "ดีจ้าาาา นี้รูปคุณใช่ไหม"
-          }
-        ])
-        alert("Message sent")
+        try {
+          const profile = await liff.getProfile()
+          await liff.sendMessages([
+            {
+              type: "image",
+              originalContentUrl: profile.pictureUrl,
+              previewImageUrl: profile.pictureUrl
+            },
+            {
+              type: "text",
+              text: "ดีจ้าาาา นี้รูปคุณใช่ไหม"
+            }
+          ])
+          alert("Message sent")
+        } catch (e) {
+          console.error(e)
+          alert("Error sending message")
+        }
       }
     }
 
