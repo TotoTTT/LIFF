@@ -94,15 +94,18 @@
 
     async function sendMsg() {
       if (liff.getContext().type !== "none") {
+        const pictur_profile = await liff.getProfile()
         await liff.sendMessages([
           {
-            "type": "text",
-            "text": "ดีจ้าาาาาา",
+            "type": "image",
+            "originalContentUrl": pictur_profile.pictureUrl,
+            "previewImageUrl": pictur_profile.pictureUrl
           }
         ])
         alert("Message sent")
       }
     }
+
 
     function getContext() {
       if (liff.getContext() != null) {
