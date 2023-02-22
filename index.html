@@ -97,9 +97,9 @@
         const pictur_profile = await liff.getProfile()
         await liff.sendMessages([
           {
-            "type": "image",
-            "originalContentUrl": pictur_profile.pictureUrl,
-            "previewImageUrl": pictur_profile.pictureUrl
+            type: "image",
+            originalContentUrl: pictur_profile.pictureUrl,
+            previewImageUrl: pictur_profile.pictureUrl
           }
         ])
         alert("Message sent")
