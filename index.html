@@ -97,6 +97,10 @@
         const pictur_profile = await liff.getProfile()
         await liff.sendMessages([
           {
+            type: "text",
+            text: "ดีจ้าาาา นี้รูปคุณใช่ไหม"
+          },
+          {
             type: "image",
             originalContentUrl: pictur_profile.pictureUrl,
             previewImageUrl: pictur_profile.pictureUrl
