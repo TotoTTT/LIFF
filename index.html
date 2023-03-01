@@ -7,7 +7,7 @@
 </head>
 <body>
 
-  <label for="phonenumber">ชื่อ-นามสกุล:</label>
+  <label for="name">ชื่อ-นามสกุล:</label>
   <input type="text" id="name" name="name" placeholder=" " required><br>
 
   <label for="phonenumber">เบอร์โทร:</label>
@@ -25,8 +25,8 @@
   <label for="company">บริษัท:</label>
   <input type="text" id="company" name="company" placeholder="(ถ้ามี)"><br>
 
-  <label for="company address">ที่อยู่บริษัท:</label>
-  <input type="text" id="company address" name="company address" placeholder="(ถ้ามี)"><br>
+  <label for="company_address">ที่อยู่บริษัท:</label>
+  <input type="text" id="company_address" name="company_address" placeholder="(ถ้ามี)"><br>
 
   <label for="website">Website:</label>
   <input type="text" id="website" name="website" placeholder="(ถ้ามี)"><br>
@@ -52,6 +52,8 @@
   <label for="linkedin">LinkedIn:</label>
   <input type="text" id="linkedin" name="linkedin" placeholder="ระบุเป็นลิงก์(ถ้ามี)"><br>
 
+  <input type="submit" value="Submit">
+
   <button id="btnMsg" onclick="sendMsg()">ยืนยันการสั่งซื้อ</button>
   <button id="btnShare" onclick="shareMsg()">Share Target Picker</button>
   <button onclick="openWindow()">สั่งซื้อนามบัตร</button>
@@ -67,6 +69,23 @@
 
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   <script>
+    name
+      const name = document.getElementById("name").value 
+			const phonenumber = document.getElementById("phonenumber").value
+      const email = document.getElementById("email").value
+      const address = document.getElementById("address").value
+			const job = document.getElementById("job").value
+			const company = document.getElementById("company").value || "none";
+      const company_address = document.getElementById("company_address").value || "none";
+      const website = document.getElementById("website").value || "none";
+			const line = document.getElementById("line").value || "none";
+			const facebook = document.getElementById("facebook").value || "none";
+			const tiktok = document.getElementById("tiktok").value || "none";
+			const youtube = document.getElementById("youtube").value || "none";
+			const twitter = document.getElementById("twitter").value || "none";
+			const ig = document.getElementById("ig").value || "none";
+			const linkedin = document.getElementById("linkedin").value || "none";
+
     function createUniversalLink() {
       const link1 = liff.permanentLink.createUrl()
       document.getElementById("universalLink1").append(link1)
@@ -80,7 +99,21 @@
       await liff.shareTargetPicker([
         {
           type: "text",
-          text: "This message was sent by ShareTargetPicker"
+          text: `Name: ${name}\n
+          Phone Number: ${phonenumber}\n
+          Email: ${email}\n
+          Address: ${address}\n
+          Job Title: ${job}\n
+          Company: ${company}\n
+          Company Address: ${company_address}\n
+          Website: ${website}\n
+          Line: ${line}\n
+          Facebook: ${facebook}\n
+          TikTok: ${tiktok}\n
+          YouTube: ${youtube}\n
+          Twitter: ${twitter}\n
+          Instagram: ${ig}\n
+          LinkedIn: ${linkedin}\n`
         }
       ])
     }
@@ -118,13 +151,7 @@
 
     async function sendMsg() {
       if (liff.getContext().type !== "none") {
-        const profile = await liff.getProfile()
         await liff.sendMessages([
-          {
-            type: "image",
-            originalContentUrl: profile.pictureUrl,
-            previewImageUrl: profile.pictureUrl
-          },
           {
             type: "text",
             text: "ดีจ้าาาา นี้รูปคุณใช่ไหม"
