@@ -53,11 +53,7 @@
   <input type="text" id="linkedin" name="linkedin" placeholder="ระบุเป็นลิงก์ (ถ้ามี)"><br>
 
   <button id="btnMsg" onclick="sendMsg()">ยืนยันการสั่งซื้อ</button>
-  <button id="btnShare" onclick="shareMsg()">Share Target Picker</button>
-  <button onclick="openWindow()">สั่งซื้อนามบัตร</button>
-  <button id="btnScanCode" onclick="scanCode()">Scan Code</button>
-  <button id="btnLogOut" onclick="logOut()">Log Out</button>
-  <button id="btnClose" onclick="closed()">Close</button>
+  <button id="btnClose" onclick="closed()">ยกเลิก</button>
 
   <script src="js/vconsole.min.js"></script>
   <script>
@@ -67,21 +63,21 @@
 
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   <script>
-      const name = document.getElementById("name").value 
+      const name_surname = document.getElementById("name").value 
 			const phonenumber = document.getElementById("phonenumber").value
       const email = document.getElementById("email").value
       const address = document.getElementById("address").value
 			const job = document.getElementById("job").value
-			const company = document.getElementById("company").value || "none";
-      const company_address = document.getElementById("company_address").value || "none";
-      const website = document.getElementById("website").value || "none";
-			const line = document.getElementById("line").value || "none";
-			const facebook = document.getElementById("facebook").value || "none";
-			const tiktok = document.getElementById("tiktok").value || "none";
-			const youtube = document.getElementById("youtube").value || "none";
-			const twitter = document.getElementById("twitter").value || "none";
-			const ig = document.getElementById("ig").value || "none";
-			const linkedin = document.getElementById("linkedin").value || "none";
+			const company = document.getElementById("company").value || "none"
+      const company_address = document.getElementById("company_address").value || "none"
+      const website = document.getElementById("website").value || "none"
+			const line = document.getElementById("line").value || "none"
+			const facebook = document.getElementById("facebook").value || "none"
+			const tiktok = document.getElementById("tiktok").value || "none"
+			const youtube = document.getElementById("youtube").value || "none"
+			const twitter = document.getElementById("twitter").value || "none"
+			const ig = document.getElementById("ig").value || "none"
+			const linkedin = document.getElementById("linkedin").value || "none"
 
     function createUniversalLink() {
       const link1 = liff.permanentLink.createUrl()
@@ -93,17 +89,9 @@
     }
 
     async function shareMsg() {
-      await liff.shareTargetPicker([
-        {
-          type: "text",
-          text: "This message was sent by ShareTargetPicker"
-        }
-      ])
     }
 
     function logOut() {
-      liff.logout()
-      window.location.reload()
     }
 
     function closed() {
@@ -111,25 +99,12 @@
     }
 
     async function scanCode() {
-      const result = await liff.scanCode()
-      document.getElementById("scanCode").append(result.value)
     }
     
     function openWindow() {
-      liff.openWindow({
-        url: "https://linkdee.co/dcard",
-        external: true
-      })
     }
 
     async function getFriendship() {
-      const friend = await liff.getFriendship()
-      document.getElementById("friendship").append(friend.friendFlag)
-      if (!friend.friendFlag) {
-        if (confirm("คุณยังไม่ได้เพิ่ม Bot เป็นเพื่อน จะเพิ่มเลยไหม?")) {
-          window.location = "https://line.me/R/ti/p/@YOUR-BOT-ID"
-        }
-      }
     }
 
     async function sendMsg() {
@@ -137,11 +112,11 @@
         await liff.sendMessages([
           {
             type: "text",
-            text: `Name: ${name}\n
+            text: `Name: ${name_surname}\n
             Phone Number: ${phonenumber}\n
             Email: ${email}\n
             Address: ${address}\n
-            Job Title: ${job}\n
+            Job : ${job}\n
             Company: ${company}\n
             Company Address: ${company_address}\n
             Website: ${website}\n
@@ -159,52 +134,16 @@
     }
 
     function getContext() {
-      if (liff.getContext() != null) {
-        document.getElementById("type").append(liff.getContext().type)
-        document.getElementById("viewType").append(liff.getContext().viewType)
-        document.getElementById("utouId").append(liff.getContext().utouId)
-        document.getElementById("roomId").append(liff.getContext().roomId)
-        document.getElementById("groupId").append(liff.getContext().groupId)
-      }
     }
 
     async function getUserProfile() {
-      const profile = await liff.getProfile()
-      document.getElementById("pictureUrl").src = profile.pictureUrl
-      document.getElementById("userId").append(profile.userId)
-      document.getElementById("statusMessage").append(profile.statusMessage)
-      document.getElementById("displayName").append(profile.displayName)
-      document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
     }
     
     function getEnvironment() {
-      document.getElementById("os").append(liff.getOS())
-      document.getElementById("language").append(liff.getLanguage())
-      document.getElementById("version").append(liff.getVersion())
-      document.getElementById("accessToken").append(liff.getAccessToken())
-      document.getElementById("isInClient").append(liff.isInClient())
-      if (liff.isInClient()) {
-        document.getElementById("btnLogOut").style.display = "none"
-      } else {
-        document.getElementById("btnMsg").style.display = "none"
-        document.getElementById("btnScanCode").style.display = "none"
-        document.getElementById("btnClose").style.display = "none"
-      }
     }
 
     async function main() {
-      liff.ready.then(() => {
-        document.getElementById("isLoggedIn").append(liff.isLoggedIn())
-        if (liff.isLoggedIn()) {
-          getEnvironment()
-          getUserProfile()
-          getContext()
-          getFriendship()
-          createUniversalLink()
-        } else {
-          liff.login()
-        }
-      })
+
       await liff.init({ liffId: "1657936859-pNNdxkxg" })
     }
     main()
