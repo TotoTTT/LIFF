@@ -32,25 +32,25 @@
   <input type="text" id="website" name="website" placeholder="(ถ้ามี)"><br>
 
   <label for="line">Line:</label>
-  <input type="text" id="line" name="line" placeholder="ระบุเป็นลิงก์(ถ้ามี)"><br>
+  <input type="text" id="line" name="line" placeholder="ระบุเป็นลิงก์ (ถ้ามี)"><br>
 
   <label for="facebook">Facebook:</label>
-  <input type="text" id="facebook" name="facebook" placeholder="ระบุเป็นลิงก์(ถ้ามี)"><br>
+  <input type="text" id="facebook" name="facebook" placeholder="ระบุเป็นลิงก์ (ถ้ามี)"><br>
 
   <label for="tiktok">TikTok:</label>
-  <input type="text" id="tiktok" name="tiktok" placeholder="ระบุเป็นลิงก์(ถ้ามี)"><br>
+  <input type="text" id="tiktok" name="tiktok" placeholder="ระบุเป็นลิงก์ (ถ้ามี)"><br>
 
   <label for="youtube">YouTube:</label>
-  <input type="text" id="youtube" name="youtube" placeholder="ระบุเป็นลิงก์(ถ้ามี)"><br>
+  <input type="text" id="youtube" name="youtube" placeholder="ระบุเป็นลิงก์ (ถ้ามี)"><br>
 
   <label for="twitter">Twitter:</label>
-  <input type="text" id="twitter" name="twitter" placeholder="ระบุเป็นลิงก์(ถ้ามี)"><br>
+  <input type="text" id="twitter" name="twitter" placeholder="ระบุเป็นลิงก์ (ถ้ามี)"><br>
 
   <label for="ig">Instagram:</label>
-  <input type="text" id="ig" name="ig" placeholder="ระบุเป็นลิงก์(ถ้ามี)"><br>
+  <input type="text" id="ig" name="ig" placeholder="ระบุเป็นลิงก์ (ถ้ามี)"><br>
 
   <label for="linkedin">LinkedIn:</label>
-  <input type="text" id="linkedin" name="linkedin" placeholder="ระบุเป็นลิงก์(ถ้ามี)"><br>
+  <input type="text" id="linkedin" name="linkedin" placeholder="ระบุเป็นลิงก์ (ถ้ามี)"><br>
 
   <button id="btnMsg" onclick="sendMsg()">ยืนยันการสั่งซื้อ</button>
   <button id="btnShare" onclick="shareMsg()">Share Target Picker</button>
@@ -97,21 +97,7 @@
       await liff.shareTargetPicker([
         {
           type: "text",
-          text: `Name: ${name}\n
-          Phone Number: ${phonenumber}\n
-          Email: ${email}\n
-          Address: ${address}\n
-          Job Title: ${job}\n
-          Company: ${company}\n
-          Company Address: ${company_address}\n
-          Website: ${website}\n
-          Line: ${line}\n
-          Facebook: ${facebook}\n
-          TikTok: ${tiktok}\n
-          YouTube: ${youtube}\n
-          Twitter: ${twitter}\n
-          Instagram: ${ig}\n
-          LinkedIn: ${linkedin}\n`
+          text: "This message was sent by ShareTargetPicker"
         }
       ])
     }
@@ -152,7 +138,21 @@
         await liff.sendMessages([
           {
             type: "text",
-            text: "ดีจ้าาาา นี้รูปคุณใช่ไหม"
+            text: `Name: ${name}\n
+            Phone Number: ${phonenumber}\n
+            Email: ${email}\n
+            Address: ${address}\n
+            Job Title: ${job}\n
+            Company: ${company}\n
+            Company Address: ${company_address}\n
+            Website: ${website}\n
+            Line: ${line}\n
+            Facebook: ${facebook}\n
+            TikTok: ${tiktok}\n
+            YouTube: ${youtube}\n
+            Twitter: ${twitter}\n
+            Instagram: ${ig}\n
+            LinkedIn: ${linkedin}\n`
           }
         ])
         alert("Message sent")
