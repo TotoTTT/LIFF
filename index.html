@@ -1,94 +1,149 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, viewport-fit=cover">
-    <title>รายละเอียดที่ต้องการใส่ในนามบัตร</title>
-    <link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
-    <label for="name">ชื่อ-นามสกุล:</label>
-    <input type="text" id="name" name="name" placeholder=" " required><br>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
+  <title>รายละเอียดที่ต้องการใส่ในนามบัตร</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-    <label for="phonenumber">เบอร์โทร:</label>
-    <input type="text" id="phonenumber" name="phonenumber" placeholder=" " required><br>
+  <label for="name">ชื่อ-นามสกุล:</label>
+  <input type="text" id="name" name="name" placeholder=" " required><br>
 
-    <label for="email">E-mail:</label>
-    <input type="text" id="email" name="email" placeholder=" " required><br>
+  <label for="phonenumber">เบอร์โทร:</label>
+  <input type="text" id="phonenumber" name="phonenumber" placeholder=" " required><br>
 
-    <label for="address">ที่อยู่:</label>
-    <input type="text" id="address" name="address" placeholder=" " required><br>
+  <label for="email">E-mail:</label>
+  <input type="text" id="email" name="email" placeholder=" " required><br>
 
-    <label for="job">อาชีพ:</label>
-    <input type="text" id="job" name="job" placeholder=" " required><br>
+  <label for="address">ที่อยู่:</label>
+  <input type="text" id="address" name="address" placeholder=" " required><br>
 
-    <label for="company">บริษัท:</label>
-    <input type="text" id="company" name="company" placeholder="(ถ้ามี)"><br>
+  <label for="job">อาชีพ:</label>
+  <input type="text" id="job" name="job" placeholder=" " required><br>
 
-    <label for="company_address">ที่อยู่บริษัท:</label>
-    <input type="text" id="company_address" name="company_address" placeholder="(ถ้ามี)"><br>
+  <label for="company">บริษัท:</label>
+  <input type="text" id="company" name="company" placeholder="(ถ้ามี)"><br>
 
-    <label for="website">Website:</label>
-    <input type="text" id="website" name="website" placeholder="(ถ้ามี)"><br>
+  <label for="company_address">ที่อยู่บริษัท:</label>
+  <input type="text" id="company_address" name="company_address" placeholder="(ถ้ามี)"><br>
 
-    <label for="line">Line:</label>
-    <input type="text" id="line" name="line" placeholder="ระบุเป็นลิงก์ (ถ้ามี)"><br>
+  <label for="website">Website:</label>
+  <input type="text" id="website" name="website" placeholder="(ถ้ามี)"><br>
 
-    <label for="facebook">Facebook:</label>
-    <input type="text" id="facebook" name="facebook" placeholder="ระบุเป็นลิงก์ (ถ้ามี)"><br>
+  <label for="line">Line:</label>
+  <input type="text" id="line" name="line" placeholder="ระบุเป็นลิงก์ (ถ้ามี)"><br>
 
-    <label for="tiktok">TikTok:</label>
-    <input type="text" id="tiktok" name="tiktok" placeholder="ระบุเป็นลิงก์ (ถ้ามี)"><br>
+  <label for="facebook">Facebook:</label>
+  <input type="text" id="facebook" name="facebook" placeholder="ระบุเป็นลิงก์ (ถ้ามี)"><br>
 
-    <label for="youtube">YouTube:</label>
-    <input type="text" id="youtube" name="youtube" placeholder="ระบุเป็นลิงก์ (ถ้ามี)"><br>
+  <label for="tiktok">TikTok:</label>
+  <input type="text" id="tiktok" name="tiktok" placeholder="ระบุเป็นลิงก์ (ถ้ามี)"><br>
 
-    <label for="twitter">Twitter:</label>
-    <input type="text" id="twitter" name="twitter" placeholder="ระบุเป็นลิงก์ (ถ้ามี)"><br>
+  <label for="youtube">YouTube:</label>
+  <input type="text" id="youtube" name="youtube" placeholder="ระบุเป็นลิงก์ (ถ้ามี)"><br>
 
-    <label for="ig">Instagram:</label>
-    <input type="text" id="ig" name="ig" placeholder="ระบุเป็นลิงก์ (ถ้ามี)"><br>
+  <label for="twitter">Twitter:</label>
+  <input type="text" id="twitter" name="twitter" placeholder="ระบุเป็นลิงก์ (ถ้ามี)"><br>
+
+  <label for="ig">Instagram:</label>
+  <input type="text" id="ig" name="ig" placeholder="ระบุเป็นลิงก์ (ถ้ามี)"><br>
 
   <label for="linkedin">LinkedIn:</label>
   <input type="text" id="linkedin" name="linkedin" placeholder="ระบุเป็นลิงก์ (ถ้ามี)"><br>
 
   <button id="btnMsg" onclick="sendMsg()">ยืนยันการสั่งซื้อ</button>
-  <button id="btnClose" onclick="closed()">ยกเลิก</button>
+  <button id="btnShare" onclick="shareMsg()">Share Target Picker</button>
+  <button onclick="openWindow()">สั่งซื้อนามบัตร</button>
+  <button id="btnScanCode" onclick="scanCode()">Scan Code</button>
+  <button id="btnLogOut" onclick="logOut()">Log Out</button>
+  <button id="btnClose" onclick="closed()">Close</button>
 
+  <script src="js/vconsole.min.js"></script>
   <script>
+    var vConsole = new VConsole()
+    console.log("Hello World!")
+  </script>
+
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  <script>
+      const name = document.getElementById("name").value 
+			const phonenumber = document.getElementById("phonenumber").value
+      const email = document.getElementById("email").value
+      const address = document.getElementById("address").value
+			const job = document.getElementById("job").value
+			const company = document.getElementById("company").value || "none";
+      const company_address = document.getElementById("company_address").value || "none";
+      const website = document.getElementById("website").value || "none";
+			const line = document.getElementById("line").value || "none";
+			const facebook = document.getElementById("facebook").value || "none";
+			const tiktok = document.getElementById("tiktok").value || "none";
+			const youtube = document.getElementById("youtube").value || "none";
+			const twitter = document.getElementById("twitter").value || "none";
+			const ig = document.getElementById("ig").value || "none";
+			const linkedin = document.getElementById("linkedin").value || "none";
+
+    function createUniversalLink() {
+      const link1 = liff.permanentLink.createUrl()
+      document.getElementById("universalLink1").append(link1)
+
+      liff.permanentLink.setExtraQueryParam('param=9')
+      const link2 = liff.permanentLink.createUrl()
+      document.getElementById("universalLink2").append(link2)
+    }
+
+    async function shareMsg() {
+      await liff.shareTargetPicker([
+        {
+          type: "text",
+          text: "This message was sent by ShareTargetPicker"
+        }
+      ])
+    }
+
+    function logOut() {
+      liff.logout()
+      window.location.reload()
+    }
+
     function closed() {
       liff.closeWindow()
     }
 
-    async function sendMsg() {
-      const name = document.getElementById("name").value 
-      const phonenumber = document.getElementById("phonenumber").value
-      const email = document.getElementById("email").value
-      const address = document.getElementById("address").value
-      const job = document.getElementById("job").value
-      const company = document.getElementById("company").value || "none";
-      const company_address = document.getElementById("company_address").value || "none";
-      const website = document.getElementById("website").value || "none";
-      const line = document.getElementById("line").value || "none";
-      const facebook = document.getElementById("facebook").value || "none";
-      const tiktok = document.getElementById("tiktok").value || "none";
-      const youtube = document.getElementById("youtube").value || "none";
-      const twitter = document.getElementById("twitter").value || "none";
-      const ig = document.getElementById("ig").value || "none";
-      const linkedin = document.getElementById("linkedin").value || "none";
+    async function scanCode() {
+      const result = await liff.scanCode()
+      document.getElementById("scanCode").append(result.value)
+    }
+    
+    function openWindow() {
+      liff.openWindow({
+        url: "https://linkdee.co/dcard",
+        external: true
+      })
+    }
 
+    async function getFriendship() {
+      const friend = await liff.getFriendship()
+      document.getElementById("friendship").append(friend.friendFlag)
+      if (!friend.friendFlag) {
+        if (confirm("คุณยังไม่ได้เพิ่ม Bot เป็นเพื่อน จะเพิ่มเลยไหม?")) {
+          window.location = "https://line.me/R/ti/p/@YOUR-BOT-ID"
+        }
+      }
+    }
+
+    async function sendMsg() {
       if (liff.getContext().type !== "none") {
-        alert("Message sent")
         await liff.sendMessages([
           {
             type: "text",
-            text: `ชื่อ: ${name}\n
-            เบอร์โทร: ${phonenumber}\n
+            text: `Name: ${name}\n
+            Phone Number: ${phonenumber}\n
             Email: ${email}\n
-            ที่อยู่: ${address}\n
-            อาชีพ: ${job}\n
-            บริษัท: ${company}\n
-            ที่อยู่บริษัท: ${company_address}\n
+            Address: ${address}\n
+            Job Title: ${job}\n
+            Company: ${company}\n
+            Company Address: ${company_address}\n
             Website: ${website}\n
             Line: ${line}\n
             Facebook: ${facebook}\n
@@ -98,9 +153,61 @@
             Instagram: ${ig}\n
             LinkedIn: ${linkedin}\n`
           }
-        ]);
+        ])
+        alert("Message sent")
       }
     }
+
+    function getContext() {
+      if (liff.getContext() != null) {
+        document.getElementById("type").append(liff.getContext().type)
+        document.getElementById("viewType").append(liff.getContext().viewType)
+        document.getElementById("utouId").append(liff.getContext().utouId)
+        document.getElementById("roomId").append(liff.getContext().roomId)
+        document.getElementById("groupId").append(liff.getContext().groupId)
+      }
+    }
+
+    async function getUserProfile() {
+      const profile = await liff.getProfile()
+      document.getElementById("pictureUrl").src = profile.pictureUrl
+      document.getElementById("userId").append(profile.userId)
+      document.getElementById("statusMessage").append(profile.statusMessage)
+      document.getElementById("displayName").append(profile.displayName)
+      document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
+    }
+    
+    function getEnvironment() {
+      document.getElementById("os").append(liff.getOS())
+      document.getElementById("language").append(liff.getLanguage())
+      document.getElementById("version").append(liff.getVersion())
+      document.getElementById("accessToken").append(liff.getAccessToken())
+      document.getElementById("isInClient").append(liff.isInClient())
+      if (liff.isInClient()) {
+        document.getElementById("btnLogOut").style.display = "none"
+      } else {
+        document.getElementById("btnMsg").style.display = "none"
+        document.getElementById("btnScanCode").style.display = "none"
+        document.getElementById("btnClose").style.display = "none"
+      }
+    }
+
+    async function main() {
+      liff.ready.then(() => {
+        document.getElementById("isLoggedIn").append(liff.isLoggedIn())
+        if (liff.isLoggedIn()) {
+          getEnvironment()
+          getUserProfile()
+          getContext()
+          getFriendship()
+          createUniversalLink()
+        } else {
+          liff.login()
+        }
+      })
+      await liff.init({ liffId: "1657936859-pNNdxkxg" })
+    }
+    main()
   </script>
 </body>
 </html>
