@@ -63,21 +63,21 @@
 
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   <script>
-    const name_surname = document.getElementById("name").value 
-    const phonenumber = document.getElementById("phonenumber").value
-    const email = document.getElementById("email").value
-    const address = document.getElementById("address").value
-    const job = document.getElementById("job").value
-    const company = document.getElementById("company").value || "none"
-    const company_address = document.getElementById("company_address").value || "none"
-    const website = document.getElementById("website").value || "none"
-    const line = document.getElementById("line").value || "none"
-    const facebook = document.getElementById("facebook").value || "none"
-    const tiktok = document.getElementById("tiktok").value || "none"
-    const youtube = document.getElementById("youtube").value || "none"
-    const twitter = document.getElementById("twitter").value || "none"
-    const ig = document.getElementById("ig").value || "none"
-    const linkedin = document.getElementById("linkedin").value || "none"
+    const name_surname = document.getElementById("name").value;
+    const phonenumber = document.getElementById("phonenumber").value;
+    const email = document.getElementById("email").value;
+    const address = document.getElementById("address").value;
+    const job = document.getElementById("job").value;
+    const company = document.getElementById("company").value || "none";
+    const company_address = document.getElementById("company_address").value || "none";
+    const website = document.getElementById("website").value || "none";
+    const line = document.getElementById("line").value || "none";
+    const facebook = document.getElementById("facebook").value || "none";
+    const tiktok = document.getElementById("tiktok").value || "none";
+    const youtube = document.getElementById("youtube").value || "none";
+    const twitter = document.getElementById("twitter").value || "none";
+    const ig = document.getElementById("ig").value || "none";
+    const linkedin = document.getElementById("linkedin").value || "none";
 
     function createUniversalLink() {
       const link1 = liff.permanentLink.createUrl()
@@ -112,7 +112,7 @@
         await liff.sendMessages([
           {
             type: "text",
-            text: `Name-Surname: ${name_surname}\n
+            text: `Name Surname: ${name_surname}\n
             Phone Number: ${phonenumber}\n
             Email: ${email}\n
             Address: ${address}\n
